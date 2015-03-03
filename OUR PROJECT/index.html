@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+
+<!--
+  Andy Lin
+  Norberto Sanchez
+  Eugenia Tan
+  Stella Lee
+  "Language of Controversy"
+-->
+
+<html>
+<head>
+
+<!--
+  To be replaced by a CSS sheet
+-->
+<style>
+#book  {
+    position:relative;
+    background-image: url("book.png");
+    width:954px;
+    height:641px;
+    text-align: right;
+}
+#title  {
+    position:absolute;
+    top:200px;
+    left:50px;
+   float:left;
+}
+#svg {
+    position:relative;
+    top:100px;
+    right:50px;
+   float:right;
+}
+</style>
+
+</head>
+<meta charset="utf-8">
+<body>
+
+<!----SUBMISSION INFO---->
+ <h4>Created By: Andy Lin, Eugenia Tan, Norberto Sanchez, and Stella Lee</h4>
+    <h4>CMPS 165 (Winter '14, Suresh Lodha): Data Programming for Visualization</h4>
+    <h4>Files Submitted:</h4>
+    <ul>
+      <li>index.html</li>
+      <li>lang.js</li>
+      <li>langStyle.css</li>
+    </ul>
+    <h4>References:</h4>
+    <h4>"Good Artists Imitate, Great Artists Steal" -Steve Jobs</h4>
+
+    <div id="book">
+      <div id="svg"></div>
+      <div id="title">BOOK TITLE HERE</div>
+    </div>
+</body>
+
+<script src="../lib/d3/d3.js"></script>
+<script src="../d3.layout.cloud.js"></script>
+<script src="jquery-1.11.1.min.js"></script>
+<script src="jquery-ui.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+
+
+<script>
+//All to be replaced by a JS file.
+
+//Jquery magic
+$(document).ready(function(){
+  
+//gets the data from the specified text file
+        $.get("test.txt", function(data, status){
+            var str=data;
+            //split parses the data into an array by the regular expression specified 
+            var thingy=str.split(" ");
+           
+        
+  var fill = d3.scale.category20();
+  
+//Word cloud creation in D3
+  d3.layout.cloud().size([300, 300])
+      .words(thingy.map(function(d) {
+        return {text: d, size: 10 + Math.random() * 90};
+      }))
+      .padding(5)
+      //.rotate(function() { return ~~(Math.random() * 2) * 90; })
+      .font("Impact")
+      .fontSize(function(d) { return d.size; })
+      .on("end", draw)
+      .start();
+
+  function draw(words) {
+    d3.select("#svg").append("svg")
+        .attr("width", 300)
+        .attr("height", 300)
+      .append("g")
+        .attr("transform", "translate(150,150)")
+      .selectAll("text")
+        .data(words)
+      .enter().append("text")
+        .style("font-size", function(d) { return d.size + "px"; })
+        .style("font-family", "Impact")
+        .style("fill", function(d, i) { return fill(i); })
+        .attr("text-anchor", "middle")
+        .attr("transform", function(d) {
+          return "translate(" + [d.x, d.y] + ")";
+        })
+        .text(function(d) { return d.text; });
+  }
+  },'text');
+});
+
+</script>
+</html>
