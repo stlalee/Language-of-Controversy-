@@ -28,11 +28,27 @@
     left:50px;
    float:left;
 }
+#title:hover{
+  color: orange;
+}
 #svg {
     position:relative;
     top:100px;
     right:50px;
    float:right;
+ }
+
+.tooltip {
+  position: absolute;
+  text-align: left;
+  width: 120px;
+  height: 30px;
+  padding: 8px;
+  font: 20px monotype corsiva;
+  background: #ddd;
+
+  border-radius: 8px;
+  pointer-events: none;
 }
 </style>
 
@@ -80,6 +96,10 @@ $(document).ready(function(){
            
         
   var fill = d3.scale.category20();
+
+var tooltip = d3.select("body").append("div")
+    .attr("class", "tooltip")
+    .style("opacity", 0);
   
 //Word cloud creation in D3
   d3.layout.cloud().size([300, 300])
@@ -109,7 +129,23 @@ $(document).ready(function(){
         .attr("transform", function(d) {
           return "translate(" + [d.x, d.y] + ")";
         })
-        .text(function(d) { return d.text; });
+        .text(function(d) { return d.text; })
+        .on("mouseover", function(d) {
+            tooltip.transition()
+               .duration(200)
+               .style("opacity", .9);
+            //Add Tooltip.html with transition and style
+            tooltip.html(d.text) 
+        })
+        .on("mousemove", function(d) {
+            return tooltip
+            .style("left", (d3.event.pageX + 15) + "px")
+            .style("top", (d3.event.pageY + 5) + "px")
+        })
+        //Then Add .on("mouseout", ....
+        .on("mouseout", function(d) {
+            tooltip.transition().duration(500).style("opacity", 0);
+        })
   }
   },'text');
 });
