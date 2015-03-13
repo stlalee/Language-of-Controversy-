@@ -44,3 +44,10 @@ $(document).ready(function(){
   }
   },'text');
 });
+
+
+  //click title for transition
+  d3.select("#title")
+  	.on("click", function() {
+  		console.log("Hey, it works!");
+  	});
