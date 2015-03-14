@@ -11,19 +11,23 @@
     left:50px;
    float:left;
 }
+#title:hover{
+  color: orange;
+}
 #svg {
     position:relative;
     top:100px;
     right:50px;
    float:right;
-}
+ }
+
 .tooltip {
   position: absolute;
   text-align: left;
   width: 120px;
-  height: 80px;
+  height: 30px;
   padding: 8px;
-  font: 10px sans-serif;
+  font: 20px monotype corsiva;
   background: #ddd;
 
   border-radius: 8px;
