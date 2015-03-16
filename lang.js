@@ -15,7 +15,7 @@ function unique(list) {
 $(document).ready(function(){
   
 //gets the data from the specified text file
-        $.get("whiteNofAmerica.txt", function(data, status){
+        $.get("test.txt", function(data, status){
             var str=data;
             // get rid of random symbols
             var thingy=str.replace(/[\.,-\/#!?$%\^&\*;:{}=\-_`~()]/g,"");
