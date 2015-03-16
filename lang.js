@@ -36,7 +36,10 @@ $(document).ready(function(){
         $.get("bookstxt/WhiteNiggersOfAmerica.txt", function(data, status){
             var str=data;
             // get rid of random symbols
-            var thingy=str.replace(/[\.,-\/#!?©@$%^"'\^&\*;:{}=\-_`~()\d]/g,"");
+            var thingy=str
+            .replace(/[\.,-\/•#!?©@$%^"'\^&\*;:{}=\-_`~()\d\r\v\n]/g,"");
+            //get rid of words under 3 characters in length
+            thingy=thingy.replace(/(\b(\w{1,3})\b(\s|$))/g, "");
             //Multiple spaces become one.
             thingy=thingy.replace(/\s+/g, ' ');
             //Make lower case
@@ -110,7 +113,7 @@ var tooltip = d3.select("body").append("div")
       .on("end", draw)
       .start();
 
-  /*function draw(words) {
+  function draw(words) {
     d3.select("#svg").append("svg")
         .attr("width", 300)
         .attr("height", 300)
@@ -143,6 +146,6 @@ var tooltip = d3.select("body").append("div")
         .on("mouseout", function(d) {
             tooltip.transition().duration(500).style("opacity", 0);
         })
-  }*/
+  }
   },'text');
 });

@@ -57,4 +57,14 @@
 
 
 <script src="lang.js"></script>
+<script>
+	$("#title").click(function() {
+		$("#book").animate({
+			opacity: 0.25,
+			left: "+=50",
+			//height: "toggle"
+		}, 1000, function() {
+		});
+	});
+</script>
 </html>
