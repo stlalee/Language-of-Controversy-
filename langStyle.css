@@ -1,8 +1,8 @@
 #book {
     position:relative;
-    background-image: url("flip.png");
+    background-image: url("book.png");
     width:954px;
-    height:641px;
+    height:641px; 
     text-align: right;
 }
 
