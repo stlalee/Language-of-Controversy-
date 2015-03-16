@@ -1,24 +1,29 @@
-#book  {
+#book {
     position:relative;
     background-image: url("book.png");
     width:954px;
     height:641px;
     text-align: right;
 }
-#title  {
+
+#title {
+    line-height: 50px;
+    padding: 10px;
     position:absolute;
-    top:200px;
-    left:50px;
-   float:left;
+    top: 50px;
+    left: 50px;
+   float: left;
 }
-#title:hover{
+
+#title li:hover {
   color: orange;
 }
+
 #svg {
-    position:relative;
-    top:100px;
-    right:50px;
-   float:right;
+    position: relative;
+    top: 100px;
+    right: 50px;
+   float: right;
  }
 
 .tooltip {
