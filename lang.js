@@ -1,5 +1,14 @@
 //All to be replaced by a JS file.
 
+var sort_by = function(field, reverse, primer){
+   var key = function (x) {return primer ? primer(x[field]) : x[field]};
+
+   return function (a,b) {
+    var A = key(a), B = key(b);
+    return ( (A < B) ? -1 : ((A > B) ? 1 : 0) ) * [-1,1][+!!reverse];                  
+   }
+}
+
 //function to get rid of repeating words
 function unique(list) {
     var result = [];
@@ -10,6 +19,15 @@ function unique(list) {
 
     return result;
 }
+
+function words(word){
+  this.word = word;
+  this.count = 1;
+}
+
+//wordArray stores the actual word and how many times it appears
+var wordArray = [];
+wordArray.push(new words("starter"));
 
 //Jquery magic
 $(document).ready(function(){
@@ -27,11 +45,30 @@ $(document).ready(function(){
             thingy=thingy.split(" ");
             console.log(unique(thingy));
 
-             var count=0;
+            //clean, unique array of words.
+            var result = unique(thingy);
+            console.log(result.length);
 
-             //clean, unique array of words.
-             var result=unique(thingy);
-             //corresponding unique array of counts
+            //Push the unique words into the wordArray, will be used for keeping count
+            for (var i = 0; i < result.length; ++i){
+              wordArray.push(new words(result[i])); 
+            }
+
+            //Run through original text, increment counts of words in wordArray
+            for (var i = 0; i < thingy.length; ++i){
+              for (var j = 0; j < wordArray.length; ++j){
+                if (thingy[i] == wordArray[j].word){
+                  wordArray[j].count++; //incrememnt count if same
+                }
+              }
+            }
+            console.log(wordArray);
+            wordArray.sort(sort_by('count',false,parseInt));
+            console.log(wordArray);
+
+            /*var count=0;
+
+            //corresponding unique array of counts
             var values=[];
             //Fills array Values with the counts
             for(i=0; i<result.length;i++){  
@@ -43,7 +80,7 @@ $(document).ready(function(){
             }
             values[i]=count;
             }
-            console.log(values);
+            console.log(values);*/
 
             /*
               var temp=thingy[1];
@@ -55,7 +92,7 @@ $(document).ready(function(){
             }*/
            
         
-  var fill = d3.scale.category20();
+var fill = d3.scale.category20();
 
 var tooltip = d3.select("body").append("div")
     .attr("class", "tooltip")
@@ -73,7 +110,7 @@ var tooltip = d3.select("body").append("div")
       .on("end", draw)
       .start();
 
-  function draw(words) {
+  /*function draw(words) {
     d3.select("#svg").append("svg")
         .attr("width", 300)
         .attr("height", 300)
@@ -106,6 +143,6 @@ var tooltip = d3.select("body").append("div")
         .on("mouseout", function(d) {
             tooltip.transition().duration(500).style("opacity", 0);
         })
-  }
+  }*/
   },'text');
 });
