@@ -48,8 +48,15 @@
     <h4>References:</h4>
 </body>
 
+<script src="lib/d3/d3.js"></script>
+<script src="d3.layout.cloud.js"></script>
+<script src="jquery-1.11.1.min.js"></script>
+<script src="jquery-ui.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="lang.js"></script>
+
 <script>
-	$("#title").click(function() {
+	$("h2").click(function() {
 		$("#book").animate({
 			opacity: 0.25,
 			left: "+=50",
@@ -58,11 +65,4 @@
 		});
 	});
 </script>
-
-<script src="lib/d3/d3.js"></script>
-<script src="d3.layout.cloud.js"></script>
-<script src="jquery-1.11.1.min.js"></script>
-<script src="jquery-ui.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="lang.js"></script>
 </html>
