@@ -1,18 +1,19 @@
 #book {
     position:relative;
-    background-image: url("flip.png");
+    background-image: url("images/flip.png");
     width:974px;
     height:641px; 
-    text-align: right;
+    text-align: center;
 }
 
 #title {
     line-height: 50px;
     padding: 10px;
     position:absolute;
-    top: 50px;
-    left: 50px;
-   float: left;
+    top: 40px;
+    left: 160px;
+    float: left;
+    font-family: Orator Std;
 }
 
 #title li:hover {

@@ -21,7 +21,7 @@
 <body>
 
 <!----SUBMISSION INFO---->
-<center><h2>Language of Controversy</h2></center>
+<center><h1 style="font-family: Chiller;font-size: 2.5em;">Language of Controversy</h1></center>
     <center><div id="book">
       <div id="svg"></div>
         <ul id="title"; style="list-style-type:none";>
@@ -53,16 +53,17 @@
 <script src="jquery-1.11.1.min.js"></script>
 <script src="jquery-ui.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="lang.js"></script>
+<!--<script src="lang.js"></script>-->
 
 <script>
 	$("h2").click(function() {
-		$("#book").animate({
+		/*$("#book").animate({
 			opacity: 0.25,
 			left: "+=50",
 			//height: "toggle"
 		}, 1000, function() {
-		});
+		});*/
+		$("#book").hide();
 	});
 </script>
 </html>
