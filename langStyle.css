@@ -22,9 +22,9 @@
 
 #svg {
     position: relative;
-    top: 100px;
-    right: 50px;
-   float: right;
+    top: 140px;
+    right: -195px;
+    /*float: right;*/
  }
 
 .tooltip {

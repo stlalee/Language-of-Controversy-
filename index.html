@@ -38,12 +38,16 @@
         </ul>
     </div></center>
  <h4>Created By: Andy Lin, Eugenia Tan, Norberto Sanchez, and Stella Lee</h4>
-    <h4>CMPS 165 (Winter '15, Suresh Lodha): Data Programming for Visualization</h4>
-    <h4>Files Submitted:</h4>
+ <h4>Created for CMPS 165: Data Programming for Visualization, Winter 2015</h4>
+ <h4>Instructor: Suresh K. Lodha</h4>
+ <h4>Files Submitted:</h4>
     <ul>
       <li>index.html</li>
-      <li>lang.js</li>
       <li>langStyle.css</li>
+      <li>lang.js</li>
+      <li>d3.layout.cloud.js</li>
+      <li>jquery-1.11.1.min.js</li>
+      <li>jquery-ui.min.js</li>
     </ul>
     <h4>References:</h4>
 </body>
@@ -53,17 +57,16 @@
 <script src="jquery-1.11.1.min.js"></script>
 <script src="jquery-ui.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<!--<script src="lang.js"></script>-->
+<script src="lang.js"></script>
 
 <script>
-	$("h2").click(function() {
-		/*$("#book").animate({
-			opacity: 0.25,
+	$("#title").click(function() {
+		$("#book").animate({
+			//opacity: 0.25,
 			left: "+=50",
 			//height: "toggle"
-		}, 1000, function() {
-		});*/
-		$("#book").hide();
+		}, 800, function() {
+		});
 	});
 </script>
 </html>
