@@ -30,15 +30,17 @@ function words(word){
 
 //Called on click
 function updateData(e){
+
   bookFile = e.id;
   var timer;
+    d3.select("svg").remove();
+    $("#img").fadeOut("slow");
     $("#book").css("background-image", "url(images/flipScene.gif)");
   timer = setTimeout(function() {
       $("#book").css("background-image", "url(images/flip.png)");
-      $("#blank").css({"display" : "none"});
       getBookFile();
-      d3.select("svg").remove();
       drawCloud(bookFile);
+            $("#img").fadeIn("slow");
 	},600); 
 }
 
@@ -46,37 +48,47 @@ function updateData(e){
 function getBookFile() {
   switch(bookFile){
     case '1':
-      bookFile = "bookstxt/Psycho.txt"
+      bookFile = "bookstxt/Psycho.txt";
+      document.getElementById("img").src = "bookstxt/american psycho.png";
       break;
     case '2':
-      bookFile = "bookstxt/AnimalFarm.txt"
+      bookFile = "bookstxt/AnimalFarm.txt";
+      document.getElementById("img").src = "bookstxt/animal farm.png";
       break;
     case '3':
-      bookFile = "bookstxt/BraveNewWorld.txt"
+      bookFile = "bookstxt/BraveNewWorld.txt";
+      document.getElementById("img").src = "bookstxt/brave new world.png";
       break;
     case '4':
-      bookFile = "bookstxt/Frankenstein.txt"
+      bookFile = "bookstxt/Frankenstein.txt";
+      document.getElementById("img").src = "bookstxt/frankenstein.png";
       break;
     case '5':
-      bookFile = "bookstxt/GrapesOfWrath.txt"
+      bookFile = "bookstxt/GrapesOfWrath.txt";
+      document.getElementById("img").src = "bookstxt/grapes of wrath.png";
       break;
     case '6':
-      bookFile = "bookstxt/Lolita.txt"
+      bookFile = "bookstxt/Lolita.txt";
+      document.getElementById("img").src = "bookstxt/lolita.png";
       break;
     case '7':
-      bookFile = "bookstxt/ToKillAMockingbird.txt"
+      bookFile = "bookstxt/ToKillAMockingbird.txt";
+      document.getElementById("img").src = "bookstxt/to kill a mockingbird.png";
       break;
     case '8':
-      bookFile = "bookstxt/TropicOfCancer.txt"
+      bookFile = "bookstxt/TropicOfCancer.txt";
+      document.getElementById("img").src = "bookstxt/tropic of cancer.png";
       break;
     case '9':
-      bookFile = "bookstxt/Ulysses.txt"
+      bookFile = "bookstxt/Ulysses.txt";
+      document.getElementById("img").src = "bookstxt/ulysses.png";
       break;
     case '10':
-      bookFile = "bookstxt/WhiteNiggersOfAmerica.txt"
+      bookFile = "bookstxt/WhiteNiggersOfAmerica.txt";
+      document.getElementById("img").src = "bookstxt/white niggers of america.png";
       break;
     default:
-      bookFile = "bookstxt/WhiteNiggersOfAmerica.txt"
+      bookFile = "bookstxt/WhiteNiggersOfAmerica.txt";
       break;
   }
 }
