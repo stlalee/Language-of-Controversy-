@@ -40,6 +40,8 @@ $(document).ready(function(){
             .replace(/[\.,-\/•#!?©@$%^"'\^&\*;:{}=\-_`~()\d\r\v\n]/g,"");
             //get rid of words under 3 characters in length
             thingy=thingy.replace(/(\b(\w{1,3})\b(\s|$))/g, "");
+            //get rid of common words
+             thingy=thingy.replace(/that|their|they|with|were|which|this|from|have|them|most|only|more|these|there|will|been|than|then|would|could|should|those|they|when/g, "");
             //Multiple spaces become one.
             thingy=thingy.replace(/\s+/g, ' ');
             //Make lower case
@@ -68,10 +70,15 @@ $(document).ready(function(){
             wordArray.sort(sort_by('count',false,parseInt));
 
             var topWords = [];
+            var topWordCount= [];
+            var testingstuff=[];
             for (var i = 0; i < 25; ++i){
               topWords.push(wordArray[i]);
+              topWordCount.push(wordArray[i].count);
+              testingstuff.push(wordArray[i].word);
             }
-
+            console.log(testingstuff);
+           
             /*var count=0;
 
             //corresponding unique array of counts
@@ -98,16 +105,21 @@ $(document).ready(function(){
             }*/
            
         
-var fill = d3.scale.category20();
+var fill = d3.scale.category10();
 
 var tooltip = d3.select("body").append("div")
     .attr("class", "tooltip")
     .style("opacity", 0);
   
+ var count2=0;
 //Word cloud creation in D3
   d3.layout.cloud().size([300, 500])
       .words(topWords.map(function(d) {
-        return {text: d.word, count: d.count, size: 10 + Math.random() * 90};
+        var wordSize=10;
+          wordSize=wordSize+((topWordCount[count2])/2);
+          
+          count2++;
+        return {text: d.word, count: d.count, size: wordSize };
       }))
       .padding(5)
       .rotate(function() { return ~~(0) * 90; })
@@ -117,6 +129,9 @@ var tooltip = d3.select("body").append("div")
       .start();
 
   function draw(words) {
+    
+    var count=0;
+    
     d3.select("#svg").append("svg")
         .attr("width", 300)
         .attr("height", 500)
@@ -125,7 +140,16 @@ var tooltip = d3.select("body").append("div")
       .selectAll("text")
         .data(words)
       .enter().append("text")
-        .style("font-size", function(d) { return d.size + "px"; })
+
+      //change font with size
+        .style("font-size", function(d) {
+          var wordSize=10;
+          wordSize=wordSize+((topWordCount[count])/2);
+          console.log(wordSize);
+          count++;
+         return wordSize+ "px"; 
+
+       })
         .style("font-family", "Impact")
         .style("fill", function(d, i) { return fill(i); })
         .attr("text-anchor", "middle")
