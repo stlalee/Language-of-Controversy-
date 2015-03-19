@@ -32,12 +32,12 @@ function words(word){
 function updateData(e){
   bookFile = e.id;
   var timer;
+    d3.select("svg").remove();
     $("#book").css("background-image", "url(images/flipScene.gif)");
   timer = setTimeout(function() {
       $("#book").css("background-image", "url(images/flip.png)");
-      $("#blank").css({"display" : "none"});
+      //$("#blank").css({"display" : "none"});
       getBookFile();
-      d3.select("svg").remove();
       drawCloud(bookFile);
 	},600); 
 }
