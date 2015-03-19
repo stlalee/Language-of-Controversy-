@@ -48,44 +48,44 @@ function updateData(e){
 function getBookFile() {
   switch(bookFile){
     case '1':
-      bookFile = "bookstxt/Psycho.txt";
       document.getElementById("img").src = "bookstxt/american psycho.png";
+      bookFile = "bookstxt/Psycho.txt";
       break;
     case '2':
-      bookFile = "bookstxt/AnimalFarm.txt";
       document.getElementById("img").src = "bookstxt/animal farm.png";
+      bookFile = "bookstxt/AnimalFarm.txt";
       break;
     case '3':
-      bookFile = "bookstxt/BraveNewWorld.txt";
       document.getElementById("img").src = "bookstxt/brave new world.png";
+      bookFile = "bookstxt/BraveNewWorld.txt";
       break;
     case '4':
-      bookFile = "bookstxt/Frankenstein.txt";
       document.getElementById("img").src = "bookstxt/frankenstein.png";
+      bookFile = "bookstxt/Frankenstein.txt";
       break;
     case '5':
-      bookFile = "bookstxt/GrapesOfWrath.txt";
       document.getElementById("img").src = "bookstxt/grapes of wrath.png";
+      bookFile = "bookstxt/GrapesOfWrath.txt";
       break;
     case '6':
-      bookFile = "bookstxt/Lolita.txt";
       document.getElementById("img").src = "bookstxt/lolita.png";
+      bookFile = "bookstxt/Lolita.txt";
       break;
     case '7':
-      bookFile = "bookstxt/ToKillAMockingbird.txt";
       document.getElementById("img").src = "bookstxt/to kill a mockingbird.png";
+      bookFile = "bookstxt/ToKillAMockingbird.txt";
       break;
     case '8':
-      bookFile = "bookstxt/TropicOfCancer.txt";
       document.getElementById("img").src = "bookstxt/tropic of cancer.png";
+      bookFile = "bookstxt/TropicOfCancer.txt";
       break;
     case '9':
-      bookFile = "bookstxt/Ulysses.txt";
       document.getElementById("img").src = "bookstxt/ulysses.png";
+      bookFile = "bookstxt/Ulysses.txt";
       break;
     case '10':
-      bookFile = "bookstxt/WhiteNiggersOfAmerica.txt";
       document.getElementById("img").src = "bookstxt/white niggers of america.png";
+      bookFile = "bookstxt/WhiteNiggersOfAmerica.txt";
       break;
     default:
       bookFile = "bookstxt/WhiteNiggersOfAmerica.txt";
@@ -153,7 +153,7 @@ var tooltip = d3.select("body").append("div")
     .style("opacity", 0);
   
  var count2=0;
-//Word cloud creation in D3
+//Word cloud creation in D3. Credit to Jason Davies for sample code.
   d3.layout.cloud().size([300, 500])
       .words(topWords.map(function(d) {
         var wordSize=20;
@@ -170,7 +170,7 @@ var tooltip = d3.select("body").append("div")
       .start();
 
   function draw(words) {
-    
+ //Credits to Jason Davies for D3 Word cloud sample code.   
     var count=0;
     
     d3.select("#svg").append("svg")
