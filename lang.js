@@ -1,5 +1,8 @@
 //All to be replaced by a JS file.
 
+//Var used to store bookfile being read in
+var bookFile;
+
 var sort_by = function(field, reverse, primer){
    var key = function (x) {return primer ? primer(x[field]) : x[field]};
 
@@ -25,12 +28,57 @@ function words(word){
   this.count = 1;
 }
 
-//wordArray stores the actual word and how many times it appears
-var wordArray = [];
-wordArray.push(new words("starter"));
+//Called on click
+function updateData(e){
+  bookFile = e.id;
+  console.log(bookFile);
+}
+
+//Called whenever changing book text
+function getBookFile() {
+  switch(bookFile){
+    case '1':
+      bookFile = "bookstxt/Psycho.txt"
+      break;
+    case '2':
+      bookFile = "bookstxt/AnimalFarm.txt"
+      break;
+    case '3':
+      bookFile = "bookstxt/BraveNewWorld.txt"
+      break;
+    case '4':
+      bookFile = "bookstxt/Frankenstein.txt"
+      break;
+    case '5':
+      bookFile = "bookstxt/GrapesOfWrath.txt"
+      break;
+    case '6':
+      bookFile = "bookstxt/Lolita.txt"
+      break;
+    case '7':
+      bookFile = "bookstxt/ToKillAMockingbird.txt"
+      break;
+    case '8':
+      bookFile = "bookstxt/TropicOfCancer.txt"
+      break;
+    case '9':
+      bookFile = "bookstxt/Ulysses.txt"
+      break;
+    case '10':
+      bookFile = "bookstxt/WhiteNiggersOfAmerica.txt"
+      break;
+    default:
+      bookFile = "bookstxt/WhiteNiggersOfAmerica.txt"
+      break;
+  }
+}
 
 //Jquery magic
 $(document).ready(function(){
+
+  //wordArray stores the actual word and how many times it appears
+  var wordArray = [];
+  wordArray.push(new words("starter"));
   
 //gets the data from the specified text file
         $.get("bookstxt/WhiteNiggersOfAmerica.txt", function(data, status){
@@ -78,32 +126,6 @@ $(document).ready(function(){
               testingstuff.push(wordArray[i].word);
             }
             console.log(testingstuff);
-           
-            /*var count=0;
-
-            //corresponding unique array of counts
-            var values=[];
-            //Fills array Values with the counts
-            for(i=0; i<result.length;i++){  
-            count=0;  
-            for(j=0;j<thingy.length;j++){        
-              if (result[i]==thingy[j]){
-                count++;
-              }
-            }
-            values[i]=count;
-            }
-            console.log(values);*/
-
-            /*
-              var temp=thingy[1];
-              var count=0;
-            for(i=0; i<thingy.length;i++){            
-              if (temp==thingy[i]){
-                count++;
-              }
-            }*/
-           
         
 var fill = d3.scale.category10();
 
