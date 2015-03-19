@@ -56,5 +56,6 @@
 
 #img {
   position: relative;
-  left: -10px;
+  top: -10px;
+  left: -25px;
 }
