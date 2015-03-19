@@ -105,12 +105,12 @@ var tooltip = d3.select("body").append("div")
     .style("opacity", 0);
   
 //Word cloud creation in D3
-  d3.layout.cloud().size([300, 300])
+  d3.layout.cloud().size([300, 500])
       .words(topWords.map(function(d) {
         return {text: d.word, count: d.count, size: 10 + Math.random() * 90};
       }))
       .padding(5)
-      //.rotate(function() { return ~~(Math.random() * 2) * 90; })
+      .rotate(function() { return ~~(0) * 90; })
       .font("Impact")
       .fontSize(function(d) { return d.size; })
       .on("end", draw)
@@ -119,9 +119,9 @@ var tooltip = d3.select("body").append("div")
   function draw(words) {
     d3.select("#svg").append("svg")
         .attr("width", 300)
-        .attr("height", 300)
+        .attr("height", 500)
       .append("g")
-        .attr("transform", "translate(150,150)")
+        .attr("transform", "translate(150,250)")
       .selectAll("text")
         .data(words)
       .enter().append("text")
@@ -130,7 +130,7 @@ var tooltip = d3.select("body").append("div")
         .style("fill", function(d, i) { return fill(i); })
         .attr("text-anchor", "middle")
         .attr("transform", function(d) {
-          return "translate(" + [d.x, d.y] + ")";
+          return "translate(" + [d.x, d.y] + ")rotate("+ d.rotate + ")";
         })
         .text(function(d) { return d.text; })
         .on("mouseover", function(d) {

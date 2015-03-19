@@ -35,11 +35,10 @@
 
 #svg {
     position: relative;
-    top: 140px;
-    right: -500px;
+    top: 50px;
+    right: -195px;
     /*float: right;*/
-    width: 350px;
-    height: 350px;
+   
  }
 
 .tooltip {
