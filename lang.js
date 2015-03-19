@@ -88,7 +88,7 @@ function drawCloud(bookFile) {
             //get rid of words under 3 characters in length
             thingy=thingy.replace(/(\b(\w{1,3})\b(\s|$))/g, "");
             //get rid of common words
-             thingy=thingy.replace(/that|their|they|with|were|which|this|from|have|them|most|only|more|these|there|will|been|than|then|would|could|should|those|they|when/g, "");
+             thingy=thingy.replace(/that|their|they|with|were|which|this|from|have|them|most|only|more|these|there|will|been|than|then|would|could|should|those|they|when|httpwwwidphnet|said|went|they|what|while|says|some|like|about|just|even|over|where|dont|your|after|s|into|down|back|around|here|away|till|through|toward|before|upon|t|uch/g, "");
             //Multiple spaces become one.
             thingy=thingy.replace(/\s+/g, ' ');
             //Make lower case
@@ -136,8 +136,8 @@ var tooltip = d3.select("body").append("div")
 //Word cloud creation in D3
   d3.layout.cloud().size([300, 500])
       .words(topWords.map(function(d) {
-        var wordSize=10;
-          wordSize=wordSize+((topWordCount[count2])/2);
+        var wordSize=20;
+          wordSize=wordSize*((topWordCount[count2])/topWordCount[24]);
           
           count2++;
         return {text: d.word, count: d.count, size: wordSize };
@@ -164,8 +164,8 @@ var tooltip = d3.select("body").append("div")
 
       //change font with size
         .style("font-size", function(d) {
-          var wordSize=10;
-          wordSize=wordSize+((topWordCount[count])/2);
+          var wordSize=20;
+          wordSize=wordSize*((topWordCount[count])/topWordCount[24]);
           console.log(wordSize);
           count++;
          return wordSize+ "px"; 
