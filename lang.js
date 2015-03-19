@@ -31,9 +31,15 @@ function words(word){
 //Called on click
 function updateData(e){
   bookFile = e.id;
-  getBookFile();
-  d3.select("svg").remove();
-  drawCloud(bookFile);
+  var timer;
+    $("#book").css("background-image", "url(images/flipScene.gif)");
+  timer = setTimeout(function() {
+      $("#book").css("background-image", "url(images/flip.png)");
+      $("#blank").css({"display" : "none"});
+      getBookFile();
+      d3.select("svg").remove();
+      drawCloud(bookFile);
+	},600); 
 }
 
 //Called whenever changing book text
