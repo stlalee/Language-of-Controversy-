@@ -153,7 +153,7 @@ var tooltip = d3.select("body").append("div")
     .style("opacity", 0);
   
  var count2=0;
-//Word cloud creation in D3
+//Word cloud creation in D3. Credit to Jason Davies for sample code.
   d3.layout.cloud().size([300, 500])
       .words(topWords.map(function(d) {
         var wordSize=20;
@@ -170,7 +170,7 @@ var tooltip = d3.select("body").append("div")
       .start();
 
   function draw(words) {
-    
+ //Credits to Jason Davies for D3 Word cloud sample code.   
     var count=0;
     
     d3.select("#svg").append("svg")
