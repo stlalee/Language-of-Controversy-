@@ -31,7 +31,9 @@ function words(word){
 //Called on click
 function updateData(e){
   bookFile = e.id;
-  console.log(bookFile);
+  getBookFile();
+  d3.select("svg").remove();
+  drawCloud(bookFile);
 }
 
 //Called whenever changing book text
@@ -73,15 +75,12 @@ function getBookFile() {
   }
 }
 
-//Jquery magic
-$(document).ready(function(){
-
-  //wordArray stores the actual word and how many times it appears
+function drawCloud(bookFile) {
   var wordArray = [];
   wordArray.push(new words("starter"));
   
 //gets the data from the specified text file
-        $.get("bookstxt/WhiteNiggersOfAmerica.txt", function(data, status){
+        $.get(bookFile, function(data, status){
             var str=data;
             // get rid of random symbols
             var thingy=str
@@ -197,4 +196,11 @@ var tooltip = d3.select("body").append("div")
         })
   }
   },'text');
+}
+
+//Jquery magic
+$(document).ready(function(){
+  getBookFile();
+  console.log(bookFile);
+  drawCloud(bookFile);
 });
