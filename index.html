@@ -25,16 +25,16 @@
     <center><div id="book">
       <div id="svg"></div>
         <ul id="title"; style="list-style-type:none";>
-            <li><div>American Psycho</div></li>
-            <li><div>Animal Farm</div></li>
-            <li><div>Brave New World</div></li>
-            <li><div>Frankenstein</div></li>
-            <li><div>Grapes of Wrath</div></li>
-            <li><div>Lolita</div></li>
-            <li><div>To Kill A Mockingbird</div></li>
-            <li><div>Tropic of Cancer</div></li>
-            <li><div>Ulysses</div></li>
-            <li><div>White Niggers of America</div></li>
+            <li><div id="1">American Psycho</div></li>
+            <li><div id="2">Animal Farm</div></li>
+            <li><div id="3">Brave New World</div></li>
+            <li><div id="4">Frankenstein</div></li>
+            <li><div id="5">Grapes of Wrath</div></li>
+            <li><div id="6">Lolita</div></li>
+            <li><div id="7">To Kill A Mockingbird</div></li>
+            <li><div id="8">Tropic of Cancer</div></li>
+            <li><div id="9">Ulysses</div></li>
+            <li><div id="10">White Niggers of America</div></li>
         </ul>
     </div></center>
  <h4>Created By: Andy Lin, Eugenia Tan, Norberto Sanchez, and Stella Lee</h4>
@@ -60,19 +60,15 @@
 <script src="lang.js"></script>
 
 <script>
-	var imgHeight = 500;
-	var numImgs = 5;
-	var cont = 0;
+	var timer;
+	
+	function flip() {
+		$("#book").css("background-image", "url(images/flip.png)");
+	}
 
 	$("#title").click(function() {
-		$("#book").animate({
-			//opacity: 0.25,
-			left: "+=50",
-			//height: "toggle"
-		}, 800, function() {
+		$("#book").css("background-image", "url(images/flipScene.gif)");
+		timer= setTimeout(flip,600);
 		});
-		/*var anim = setInterval(function() {
-		}*/
-	});
 </script>
 </html>
