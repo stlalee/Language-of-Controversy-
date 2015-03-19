@@ -30,14 +30,15 @@ function words(word){
 
 //Called on click
 function updateData(e){
+
   bookFile = e.id;
   var timer;
+    d3.select("svg").remove();
     $("#img").fadeOut("slow");
     $("#book").css("background-image", "url(images/flipScene.gif)");
   timer = setTimeout(function() {
       $("#book").css("background-image", "url(images/flip.png)");
       getBookFile();
-      d3.select("svg").remove();
       drawCloud(bookFile);
             $("#img").fadeIn("slow");
 	},600); 
