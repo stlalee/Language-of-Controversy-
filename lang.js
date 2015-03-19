@@ -94,7 +94,9 @@ function drawCloud(bookFile) {
             //get rid of words under 3 characters in length
             thingy=thingy.replace(/(\b(\w{1,3})\b(\s|$))/g, "");
             //get rid of common words
-             thingy=thingy.replace(/that|their|they|with|were|which|this|from|have|them|most|only|more|these|there|will|been|than|then|would|could|should|those|they|when|httpwwwidphnet|said|went|they|what|while|says|some|like|about|just|even|over|where|dont|your|after|s|into|down|back|around|here|away|till|through|toward|before|upon|t|uch/g, "");
+             thingy=thingy.replace(/that|their|they|with|were|which|this|from|have|them|most|only|more|these|there|will|been|than|then|would|could|should|those|they|when|httpwwwidphnet|said|went|they|what|while|says|some|like|about|just|even|over|where|dont|your|after|into|down|back|around|here|away|till|through|toward|before|upon/g, "");
+                //get rid of words under 3 characters in length
+            thingy=thingy.replace(/(\b(\w{1,3})\b(\s|$))/g, "");
             //Multiple spaces become one.
             thingy=thingy.replace(/\s+/g, ' ');
             //Make lower case
