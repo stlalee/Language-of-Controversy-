@@ -7,17 +7,25 @@
 }
 
 #title {
-    line-height: 50px;
-    padding: 10px;
+    width: 80px;
+    word-wrap: break-word;
     position:absolute;
-    top: 40px;
-    left: 160px;
+    top: 20px;
+    left: -25px;
     float: left;
     font-family: Orator Std;
+    src: url("OratorStd.otf");
+    text-align: left;
+
+}
+
+#title li {
+    margin-bottom: 34px;
+    line-height: 10px;
 }
 
 #title li:hover {
-  color: orange;
+    color: orange;
 }
 
 #svg {
