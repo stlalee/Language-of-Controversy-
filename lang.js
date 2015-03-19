@@ -65,9 +65,12 @@ $(document).ready(function(){
                 }
               }
             }
-            console.log(wordArray);
             wordArray.sort(sort_by('count',false,parseInt));
-            console.log(wordArray);
+
+            var topWords = [];
+            for (var i = 0; i < 25; ++i){
+              topWords.push(wordArray[i]);
+            }
 
             /*var count=0;
 
@@ -103,8 +106,8 @@ var tooltip = d3.select("body").append("div")
   
 //Word cloud creation in D3
   d3.layout.cloud().size([300, 300])
-      .words(result.map(function(d) {
-        return {text: d, size: 10 + Math.random() * 90};
+      .words(topWords.map(function(d) {
+        return {text: d.word, count: d.count, size: 10 + Math.random() * 90};
       }))
       .padding(5)
       //.rotate(function() { return ~~(Math.random() * 2) * 90; })
@@ -135,7 +138,7 @@ var tooltip = d3.select("body").append("div")
                .duration(200)
                .style("opacity", .9);
             //Add Tooltip.html with transition and style
-            tooltip.html(d.text) 
+            tooltip.html("\"" + d.text + "\"" + " appears " + d.count + " times.") 
         })
         .on("mousemove", function(d) {
             return tooltip

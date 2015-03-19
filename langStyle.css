@@ -6,6 +6,11 @@
     text-align: center;
 }
 
+@font-face{
+    font-family: Orator Std;
+    src: url(OratorStd.otf);
+}
+
 #title {
     width: 80px;
     word-wrap: break-word;
@@ -13,14 +18,14 @@
     top: 20px;
     left: -25px;
     float: left;
-    font-family: Orator Std;
-    src: url("OratorStd.otf");
     text-align: left;
+    font-family: Orator Std;
+    font-size: 13px;
 
 }
 
 #title li {
-    margin-bottom: 34px;
+    margin-bottom: 39px;
     line-height: 10px;
 }
 
